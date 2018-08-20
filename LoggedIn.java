@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -19,6 +20,7 @@ import com.google.android.gms.tasks.Task;
 
 public class LoggedIn extends AppCompatActivity {
 Button mButton;
+TextView mTextView;
 GoogleSignInClient mGoogleSignInClient;
 
     @Override
@@ -26,6 +28,7 @@ GoogleSignInClient mGoogleSignInClient;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logged_in);
         mButton=findViewById(R.id.signOut);
+        mTextView=findViewById(R.id.name);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,6 +43,7 @@ GoogleSignInClient mGoogleSignInClient;
             String personEmail = acct.getEmail();
             String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
+            mTextView.setText(personEmail);
             Log.v("THIS","NAme:"+personGivenName);
         }
     }
