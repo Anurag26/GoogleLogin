@@ -78,8 +78,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             firebaseAuthWithGoogle(account);
-            Intent intent=new Intent(this,LoggedIn.class);
-            startActivity(intent);
+
             // Signed in successfully, show authenticated UI.
            // updateUI(account);
         } catch (ApiException e) {
@@ -98,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            Intent intent=new Intent(getApplicationContext(),LoggedIn.class);
+                            startActivity(intent);
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
