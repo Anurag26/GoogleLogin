@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        Intent intent=new Intent(this,LoggedIn.class);
-        startActivity(intent);
+//        Intent intent=new Intent(this,LoggedIn.class);
+//        startActivity(intent);
         Toast.makeText(getApplicationContext(),"Logged in already",Toast.LENGTH_SHORT).show();
         super.onStart();
     }
